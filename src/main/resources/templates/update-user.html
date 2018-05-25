@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Users List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h3 th:text="${user.id} + '- Update your profile ' + ${user.pseudo}"></h3>
+<form action="#" th:action="@{'/update-user/' + ${user.id}}" th:object="${user}" method="post">
+    <p>Email : <input type="text" th:value="${user.email}" id="email" name="email"></p>
+    <p>First Name : <input type="text" th:value="${user.firstName}" id="firstname" name="firstName"></p>
+    <p>Family Name : <input type="text" th:value="${user.familyName}" id="familyName" name="familyName"></p>
+    <p>Description : <input type="text" th:value="${user.description}" id="description" name="description"></p>
+    <p>Pseudo : <input type="text" th:value="${user.pseudo}" id="pseudo" name="pseudo"></p>
+    <p>Password : <input type="text" th:value="${user.pssword}" id="pssword" name="pssword"></p>
+    <p><input type="submit" value="Submit" /></p>
+</form>
+<a th:href="@{/users-list}">Users List</a>
+<a th:href="@{'/show-user/' + ${user.id}}">Show</a>
+</body>
+</html>
